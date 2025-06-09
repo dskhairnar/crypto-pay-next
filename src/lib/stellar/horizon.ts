@@ -1,15 +1,15 @@
 
-import { Server, Account, TransactionBuilder, Operation, Asset, Keypair } from '@stellar/stellar-sdk';
+import { Horizon, Account, TransactionBuilder, Operation, Asset, Keypair, Memo } from '@stellar/stellar-sdk';
 import { STELLAR_CONFIG } from './config';
 
 export class HorizonService {
-  private server: Server;
+  private server: Horizon.Server;
 
   constructor() {
-    this.server = new Server(STELLAR_CONFIG.HORIZON_URL);
+    this.server = new Horizon.Server(STELLAR_CONFIG.HORIZON_URL);
   }
 
-  async getAccount(publicKey: string): Promise<Account> {
+  async getAccount(publicKey: string): Promise<Horizon.AccountResponse> {
     try {
       return await this.server.loadAccount(publicKey);
     } catch (error) {
@@ -112,7 +112,7 @@ export class HorizonService {
       );
 
       if (memo) {
-        transactionBuilder.addMemo(memo);
+        transactionBuilder.addMemo(Memo.text(memo));
       }
 
       const transaction = transactionBuilder.setTimeout(30).build();
