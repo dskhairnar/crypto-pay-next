@@ -21,13 +21,25 @@ export class HorizonService {
   async getAccountBalances(publicKey: string) {
     try {
       const account = await this.getAccount(publicKey);
-      return account.balances.map(balance => ({
-        asset_type: balance.asset_type,
-        asset_code: balance.asset_code || 'XLM',
-        asset_issuer: balance.asset_issuer,
-        balance: balance.balance,
-        limit: balance.limit
-      }));
+      return account.balances.map(balance => {
+        if (balance.asset_type === 'native') {
+          return {
+            asset_type: balance.asset_type,
+            asset_code: 'XLM',
+            asset_issuer: undefined,
+            balance: balance.balance,
+            limit: undefined
+          };
+        } else {
+          return {
+            asset_type: balance.asset_type,
+            asset_code: balance.asset_code,
+            asset_issuer: balance.asset_issuer,
+            balance: balance.balance,
+            limit: balance.limit
+          };
+        }
+      });
     } catch (error) {
       console.error('Error getting balances:', error);
       return [];
