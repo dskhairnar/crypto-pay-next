@@ -61,9 +61,24 @@ export default defineConfig(({ mode }) => ({
             'clsx',
             'tailwind-merge',
             'tailwindcss-animate'
-          ]
+          ],
+          'stellar': ['@stellar/stellar-sdk'],
+          'query': ['@tanstack/react-query'],
+          'forms': ['react-hook-form', '@hookform/resolvers', 'zod'],
+          'charts': ['recharts'],
+          'date': ['date-fns', 'react-day-picker'],
+          'icons': ['lucide-react'],
+          'animations': ['embla-carousel-react', 'react-resizable-panels']
         },
       },
     },
+    chunkSizeWarningLimit: 1000,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: mode === 'production',
+        drop_debugger: mode === 'production'
+      }
+    }
   },
 }));
