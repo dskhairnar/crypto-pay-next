@@ -1,10 +1,7 @@
 
-'use client';
-
 import { ReactNode } from 'react';
 import { Wallet, Users, Send, History, Settings } from 'lucide-react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 interface LayoutProps {
@@ -20,7 +17,7 @@ const navigation = [
 ];
 
 export default function Layout({ children }: LayoutProps) {
-  const router = useRouter();
+  const location = useLocation();
 
   return (
     <div className="min-h-screen bg-background">
@@ -40,11 +37,11 @@ export default function Layout({ children }: LayoutProps) {
           {/* Navigation */}
           <nav className="flex-1 p-4 space-y-2">
             {navigation.map((item) => {
-              const isActive = router.pathname === item.href;
+              const isActive = location.pathname === item.href;
               return (
                 <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className={cn(
                     'flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200',
                     isActive
