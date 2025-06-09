@@ -30,13 +30,22 @@ export class HorizonService {
             balance: balance.balance,
             limit: undefined
           };
-        } else {
+        } else if (balance.asset_type === 'credit_alphanum4' || balance.asset_type === 'credit_alphanum12') {
           return {
             asset_type: balance.asset_type,
             asset_code: balance.asset_code,
             asset_issuer: balance.asset_issuer,
             balance: balance.balance,
             limit: balance.limit
+          };
+        } else {
+          // Handle liquidity pool balances
+          return {
+            asset_type: balance.asset_type,
+            asset_code: 'LP',
+            asset_issuer: undefined,
+            balance: balance.balance,
+            limit: undefined
           };
         }
       });
