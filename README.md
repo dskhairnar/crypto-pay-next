@@ -1,73 +1,150 @@
-# Welcome to your Lovable project
+# BasicPay - Stellar Payments Platform
 
-## Project info
+A modern, feature-rich Stellar payments application built with React and Vite, demonstrating seamless integration with Stellar's ecosystem and best practices in web development.
 
-**URL**: https://lovable.dev/projects/9343966f-1b39-4749-84f7-40ed7dc0b71f
+## 🚀 Tech Stack
 
-## How can I edit this code?
+### Core Technologies
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite 5
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **State Management**: React Query (TanStack Query)
+- **Routing**: React Router DOM
+- **Form Handling**: React Hook Form with Zod validation
+- **UI Components**: Radix UI primitives with shadcn/ui
+- **Charts**: Recharts
+- **Date Handling**: date-fns
+- **Icons**: Lucide React
+- **Animations**: Embla Carousel, React Resizable Panels
 
-There are several ways of editing your application.
+### Stellar Integration
+- **SDK**: @stellar/stellar-sdk
+- **SEPs Implementation**: 
+  - SEP-0010 (Web Authentication)
+  - SEP-0007 (URI Scheme)
+  - SEP-0006 (Deposit/Withdrawal)
 
-**Use Lovable**
+## 🛠️ Project Structure
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9343966f-1b39-4749-84f7-40ed7dc0b71f) and start prompting.
+```
+src/
+├── components/     # Reusable UI components
+├── contexts/      # React contexts (Stellar, Theme, etc.)
+├── hooks/         # Custom React hooks
+├── lib/           # Utility functions and configurations
+├── pages/         # Route components
+└── types/         # TypeScript type definitions
+```
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🔌 API Integration
 
-**Use your preferred IDE**
+### Stellar Horizon API
+- **Base URL**: `https://horizon.stellar.org`
+- **Endpoints**:
+  - Account details
+  - Transaction history
+  - Payment operations
+  - Asset information
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Stellar Laboratory API
+- Used for testing and development
+- Provides test accounts and network access
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🎨 UI/UX Features
 
-Follow these steps:
+### Components
+- **Form Components**: Input, Select, Checkbox, Radio
+- **Navigation**: Tabs, Menus, Dropdowns
+- **Feedback**: Toasts, Alerts, Progress indicators
+- **Data Display**: Tables, Cards, Lists
+- **Modals**: Dialogs, Popovers, Tooltips
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Theme Support
+- Light/Dark mode
+- System preference detection
+- Custom color schemes
+- Responsive design
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🔒 Security Features
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Secure key storage
+- Transaction signing
+- XDR encoding/decoding
+- SEP-0010 authentication
+- Input validation
+- XSS protection
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 🚀 Performance Optimizations
+
+- Code splitting
+- Lazy loading
+- Bundle optimization
+- Asset compression
+- Caching strategies
+
+## 🛠️ Development
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Stellar account (testnet)
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/crypto-pay-next.git
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Building for Production
+```bash
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Dependencies
 
-**Use GitHub Codespaces**
+### Core Dependencies
+- `@stellar/stellar-sdk`: Stellar blockchain interaction
+- `@tanstack/react-query`: Data fetching and caching
+- `react-router-dom`: Client-side routing
+- `react-hook-form`: Form handling
+- `zod`: Schema validation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### UI Dependencies
+- `@radix-ui/*`: Accessible UI primitives
+- `tailwindcss`: Utility-first CSS
+- `shadcn/ui`: Component library
+- `recharts`: Data visualization
+- `lucide-react`: Icon set
 
-## What technologies are used for this project?
+### Development Dependencies
+- `typescript`: Type safety
+- `vite`: Build tool
+- `eslint`: Code linting
+- `prettier`: Code formatting
+- `tailwindcss`: CSS framework
 
-This project is built with:
+## 🤝 Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## How can I deploy this project?
+## 📝 License
 
-Simply open [Lovable](https://lovable.dev/projects/9343966f-1b39-4749-84f7-40ed7dc0b71f) and click on Share -> Publish.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Can I connect a custom domain to my Lovable project?
+## 🙏 Acknowledgments
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- [Stellar Development Foundation](https://stellar.org)
+- [shadcn/ui](https://ui.shadcn.com)
+- [Vite](https://vitejs.dev)
+- [React](https://reactjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
